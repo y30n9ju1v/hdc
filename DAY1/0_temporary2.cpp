@@ -49,6 +49,11 @@ int main()
 	Point&& r5 = pt; // error. rvalue reference 는 rvalue 만 가리킵니다.
 					 // lvalue(이름있는 객체) 는 가리킬수 없습니다.
 
+	// Point&  : lvalue reference, lvalue(이름있는 객체)만 가르킨다
+	// Point&& : rvalue reference, rvalue(임시객체)만 가르킨다 - C++11
+	// const Point& : const lvalue reference, lvalue, rvalue 모두
+	//						                가리킨다
+
 }
 
 
