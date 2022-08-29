@@ -21,6 +21,7 @@ public:
 	{
 		std::cout << "~Counter" << std::endl;
 	}
+	Counter() = default;
 };
 int main()
 {
