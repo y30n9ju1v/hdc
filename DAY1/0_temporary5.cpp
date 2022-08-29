@@ -17,21 +17,19 @@ public:
 	{
 		std::cout << "Counter Copy ctor" << std::endl;
 	}
-
 	~Counter()
 	{
 		std::cout << "~Counter" << std::endl;
 	}
-
 };
-
 int main()
 {
 	Counter c;
 //	c.increment();
 //	c.increment();
 //	c.increment();
+	std::cout << "------------------" << std::endl;
 	c.increment().increment().increment();
-
+	std::cout << "------------------" << std::endl;
 	std::cout << c.get() << std::endl;
 }
