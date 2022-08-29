@@ -13,6 +13,16 @@ public:
 	}
 	int get() const { return value; }
 
+	Counter(const Counter& c) :value(c.value)
+	{
+		std::cout << "Counter Copy ctor" << std::endl;
+	}
+
+	~Counter()
+	{
+		std::cout << "~Counter" << std::endl;
+	}
+
 };
 
 int main()
