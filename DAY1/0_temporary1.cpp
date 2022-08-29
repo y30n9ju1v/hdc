@@ -10,6 +10,8 @@ public:
 	Point(int a, int b) { std::cout << "Point()" << std::endl;}
 	~Point()            { std::cout << "~Point()" << std::endl;	}
 };
+// 핵심 1. temporary 를 만드는 법
+//     2. 수명 을 알아 두세요.
 int main()
 {
 //	Point pt(1, 2); // named object
@@ -22,6 +24,7 @@ int main()
 	Point(1, 2), std::cout << "X" << std::endl; 
 
 	std::cout << "-------" << std::endl;
+
 } // <== pt 파괴.
 
 
