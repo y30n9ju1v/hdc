@@ -36,3 +36,8 @@ int main()
 
 // user define type : const reference
 // => f2( const std::string& s) {}
+
+std::vector<int> v = { 1,2,3 };
+fn(v.begin());  // 반복자는 user define 타입이지만
+				// 크기가 작고, 자원을 소유하지 않습니다.
+// => 반복자 같은 경우는 "call by value"가 원칙 입니다.
