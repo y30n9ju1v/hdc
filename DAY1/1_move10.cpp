@@ -25,7 +25,7 @@ int main()
 	Object obj1;
 	Object obj2 = obj1; // 무조건 복사 생성자
 	Object obj3 = std::move(obj1); // 무조건 move 생성자
-	Object obj4 = std::move_if_noexcept(obj1); 
+	Object obj4 = std::move_if_noexcept(obj2); 
 					// move 생성자에 예외가 없다면 move 사용
 					// move 생성자에 예외가능성이 있다면 copy 사용
 
