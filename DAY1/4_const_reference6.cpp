@@ -21,17 +21,22 @@ public:
 		std::cout << "message : " << s << std::endl;
 	}
 };
-
-
-
 int main()
 {
 	std::string s1 = "john";
 	std::string s2 = "john";
 
 	People p;
+	// setName : 인자로 전달된 객체를 복사(또는 move)로 해서 보관(retain)합니다.
 	p.setName(s1);
 	p.setName(std::move(s2));
+
+	// print_msg : 인자로 전달된 객체를 다른 곳에 보관하는 것은 아닙니다.
+	//			   자원을 별도로 보관하지는 move를 고려할필요 없습니다	
+	//			   
+	p.print_msg(s1);
+	p.print_msg(std::move(s1)); // 단, 사용자가 이렇게 사용할수있지만
+								// move 효과는 없습니다.
 
 	std::cout << s1 << std::endl;
 	std::cout << s2 << std::endl;
