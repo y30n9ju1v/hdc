@@ -39,14 +39,12 @@ Point& f2()	// return by reference - 임시객체 생성 안됨.
 {	
 	return pt;	// pt자체(별명)으로 반환
 }
-
 int main()
 {
-	f1().x = 10; // error. 임시객체.x = 10 인데
+//	f1().x = 10; // error. 임시객체.x = 10 인데
 					// tempoarary 는 rvalue.. 이므로 
 					// =이 왼쪽에 놓일수 없다.
 	f2().x = 10; // ok.
-
 }
 
 
