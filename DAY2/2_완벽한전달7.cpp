@@ -16,8 +16,18 @@ public:
 
 template<typename T> void fn(T&& arg)
 {
-	T obj = arg;
+//	X obj = arg;	// arg 는 무조건 lvalue 입니다. 
+					// => 이 코드는 항상 복사 생성자 호출
+
+//	X obj = std::move(arg); // std::move 의 목표는 move 생성자를 호출하기 위한것
+							// => std::move 는 무조건 rvalue 로 캐스팅합니다.
+	
+	X obj = std::forward<T>(arg);	// 인자를 보낼때 lvalue, rvalue 여부에 따라
+									// 달라집니다.
+							// => lvalue 를 보냈으면 lvalue 캐스팅(COPY)
+							// => rvalue ""        rvalue      (MOVE 호출)		
 }
+
 int main()
 {
 	X x;
