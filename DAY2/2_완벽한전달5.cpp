@@ -26,15 +26,23 @@ template<typename F> void chronometry(F f, int&& arg)
 template<typename F, typename T>
 void chronometry(F f, T&& arg)
 {
+	// T&& 는 rvalue reference 라고 생각하면 안됩니다.
+	//       "forwarding reference" 입니다.
+	//       인자로 lvalue 를 보냈는지, rvalue 를 보냈는지에 따라달라 집니다.
 	f(static_cast<T&&>(arg));
+	// => 위 캐스팅은 "rvalue" 캐스팅이 아닙니다
+
+	// "(인자로) rvalue 를 (전달하면) rvalue 로 캐스팅하고
+	//          lvalue 를          lvalue 로 캐스팅합니다.
+
 }
 
 int main()
 {
 	int n = 0;
-	chronometry(foo, 10);	// T=?, T&&, chronometry( ? )
-							// static_cast<?>(arg)
+	chronometry(foo, 10);	// T=int, T&&=int&&, chronometry( int&&)
+							// static_cast<int&&>(arg)
 
-	chronometry(goo, n);	// T=?, T&&, chronometry( ? )
-							// static_cast<?>(arg)
+	chronometry(goo, n);	// T=int&, T&&=int& &&, chronometry(int&)
+							// static_cast<int&>(arg)
 }
