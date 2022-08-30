@@ -38,7 +38,13 @@ public:
 		: name(std::forward<T1>(n)), addr(std::forward<T2>(a))
 	{
 	}
+
+	// People 자체는 template 이 아니지만
+	// 인자가 2개 이상인, setter 와 생성자를 만들때
+	// std::move 기술을 지원하고 싶었기 때문에
+	// "생성자와 setter" 가 템플릿(forwarding reference) 가 된것
 };
+
 
 
 int main()
