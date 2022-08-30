@@ -26,6 +26,6 @@ int main()
 	vector v6 = { 1,2,3,4,5,6,7,8,9,10 };
 
 	// 아래 2줄의 차이점을 이해하는 것이 아주 중요 합니다.
-	std::vector<int> v7(10, 3); // 10개를 3으로
-	std::vector<int> v8{10, 3}; // 2개를 10, 3 으로 
+	std::vector<int> v7(10, 3); // 10개를 3으로  vector(int, int)호출
+	std::vector<int> v8{10, 3}; // 2개를 10, 3 으로 vector(std::initializer_list)
 }
