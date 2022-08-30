@@ -1,19 +1,24 @@
 #include <iostream>
 
-void foo(int a) {}
-void goo(int& a) { a = 100; }
+void f0()      { printf("f0\n"); }
+void f1(int a) { printf("f1 : %d\n", a); }
+void f3(int a, double d, int& r) { r = 200; }
 
-void hoo(int&& arg) {}
+// 완벽한 전달은
+// 1. 가변 인자 템플릿으로 하는 경우가 많습니다.
 
-template<typename F, typename T>
-void chronometry(F f, T&& arg)
+template<typename F, typename ... T>
+void chronometry(F f, T&& ... arg)
 {
-	f(std::forward<T>(arg));
+	f( std::forward<T>(arg)... );
 }
 
 int main()
 {
 	int n = 0;
-	chronometry(foo, 10);
-	chronometry(goo, n);
+	chronometry(f1);
+	chronometry(f2, 10);
+	chronometry(f3, 10, 3.4, n);
+
+	std::cout << n << std::endl;
 }
