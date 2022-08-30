@@ -44,5 +44,8 @@ int main()
 	// 핵심: STL 컨테이너에 사용자 정의 타입을 "값"으로 보관 한다면
 	// "push_xxx()" 대신 "emplace_xxx()" 를 사용하라!
 
+	// 단, 컨테이너가 primitive type(int) 또는 "포인터"를 보관한다면
+	// 그냥, push_xxx() 하시면 됩니다.
+
 	std::cout << "------------" << std::endl;
 }
