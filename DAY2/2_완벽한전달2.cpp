@@ -8,6 +8,8 @@ void goo(int& a) { a = 100; }
 // 2. const 도 추가되면 안된다.
 // => int&, int&& 버전을 따로 제공해야 한다.
 
+// => 그런데, 아래 코드는 "한가지 문제" 점이 있습니다. 
+// => 다음소스 참고
 
 template<typename F> void chronometry(F f, int& arg)
 {
@@ -18,8 +20,6 @@ template<typename F> void chronometry(F f, int&& arg)
 {
 	f(arg);
 }
-
-
 
 int main()
 {
