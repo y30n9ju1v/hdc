@@ -1,15 +1,28 @@
-// F.53: Avoid capturing by reference in lambdas that will be used non - locally, 
+
+// F.53: Avoid capturing by reference in lambdas 
+//       that will be used non - locally, 
 //       including returned, stored on the heap, or passed to another thread
 
 #include <vector>
 #include <functional>
 
-std::function<int(int, int)> f;
+// 람다 표현식에 의해 컴파일러가 자동 생성한 클래스를 다른 문맥에서 또 쓸수있나요?
+
+std::function<int(int, int)> f; // 전역변수 이름로 모든 함수 가 사용가능
 
 void foo()
 {
+	int num = 10;
+	f = [&num](int a, int b) { return a + b + num; };
 
+}	// <== num 파괴. f 가 보관하던 참조는 dangling!
+
+void goo()
+{
+	int ret = f(1, 2); // 버그.. f는 dangling reference 보관
 }
+
+
 
 int main()
 {
