@@ -2,7 +2,8 @@
 #include <algorithm>
 #include <vector>
 
-// F.50 : Use a lambda when a function won't do (to capture local variables, or to write a local function)
+// F.50 : Use a lambda when a function won't do 
+//      (to capture local variables, or to write a local function)
 
 int main()
 {
@@ -27,5 +28,5 @@ int main()
 		}
 	};
 	auto ret1 = std::find_if(v.begin(), v.end(), 
-		CompilerGeneratedName(k));
+										CompilerGeneratedName(k));
 }
