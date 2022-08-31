@@ -30,7 +30,9 @@ int main()
 	List<int> s1(10, 3);
 //	List      s2(10, 3);	// 생성자를 통한 타입 추론은 C++17 부터 가능합니다
 
-	auto s3 = make_list<int>(10, 3);
+	auto s3 = make_list<int>(10, 3);	// 타입 전달
+	auto s4 = make_list(10, 3);		// 함수 템플릿은 C++98 부터
+									// 타입 생략가능.
 }
 
 
