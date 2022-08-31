@@ -38,4 +38,9 @@ int main()
 								 //    해서 전달
 								 // 3. 임시객체를 만들때 문자열의 복제가 발생
 	f2("sdjsdjflsjflskdjflkds");
+
+	// std::string_view : string 에 대한 view 입니다
+	// C++20  std::span : 범용적 용도의 view 입니다.
+	//						모든 종류의 연속된 메모리에 대한 view
+	//						배열, vector, std::array 등.. 
 }
